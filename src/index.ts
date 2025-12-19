@@ -1,9 +1,9 @@
-import { Hono } from 'hono'
+import { HestFactory } from '@hestjs/core';
+import { AppModule } from './app.module';
 
-const app = new Hono()
+async function bootstrap() {
+  const app = await HestFactory.create(AppModule);
+  export default app;
+}
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
-
-export default app
+bootstrap();
