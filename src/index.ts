@@ -1,4 +1,6 @@
 import { Hono } from 'hono'
+import product from './product/product'
+import user from './user/user'
 
 const app = new Hono()
 
@@ -12,5 +14,8 @@ app.get('/json', (c) => {
     "obj2":"002"
   })
 })
+
+app.route('/users', user)
+app.route('/products', product)
 
 export default app
